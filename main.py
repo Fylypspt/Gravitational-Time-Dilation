@@ -1,7 +1,6 @@
 from math import sqrt
-
 from matplotlib import pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.ticker as mticker
 import numpy as np
 
 closer = [
@@ -14,7 +13,7 @@ farther = [
     [10, 2.523460639e20, 0, 0]
 ]
 
-mass = 1.989e30 * 4.3e6  #mass of the sun in kg
+mass = 1.989e30 * 4.3e6  #mass of the black hole in kg
 G = 6.67430e-11
 c = 299792458
 
@@ -69,3 +68,22 @@ t2 = time(farther, mass)
 
 print(f"t1: {t1:.5f}")
 print(f"t2: {t2:.5f}")
+
+distances = []
+time_dilations = []
+for r in np.linspace(1.28e10, 1e11, 500):
+    path = [
+        [0, r, 0, 0],
+        [10, r, 0, 0]
+    ]
+    t_proper = time(path, mass)
+    distances.append(r)
+    time_dilations.append(t_proper)
+plt.plot(distances, time_dilations)
+plt.xscale('log')
+plt.xlabel('Distance from Black Hole (m)')
+plt.ylabel('Proper Time for 10s Coordinate Time (s)')
+plt.title('Time Dilation Near a Supermassive Black Hole')
+plt.grid(True)
+plt.gca().yaxis.set_major_formatter(mticker.FormatStrFormatter('%.1f'))
+plt.show()
