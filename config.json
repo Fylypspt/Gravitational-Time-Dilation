@@ -1,0 +1,19 @@
+{
+    "celestial_bodies": {
+        "sagittarius_a": {
+            "mass": 8.5527e36,
+            "description": "Supermassive black hole at Milky Way center"
+        },
+        "sun": {
+            "mass": 1.989e30,
+            "description": "Our local star"
+        },
+        "earth": {
+            "mass": 5.972e24,
+            "description": "Home"
+        }
+    },
+    "simulation_settings": {
+        "coordinate_time": 10.0
+    }
+}

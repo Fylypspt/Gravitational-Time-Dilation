@@ -2,20 +2,25 @@ from math import sqrt
 from matplotlib import pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
+import json
+
+with open('config.json', 'r') as f:
+    config = json.load(f)
+
+G = 6.67430e-11
+c = 299792458
+mass = config['celestial_bodies']['sagittarius_a']['mass']
+t_coord = config['simulation_settings']['coordinate_time']
 
 closer = [
     [0, 1.5e10, 0, 0], #>12.7M km
-    [10, 1.5e10, 0, 0]
+    [t_coord, 1.5e10, 0, 0]
 ] 
 
 farther = [
     [0, 2.523460639e20, 0, 0], #26673 light-years
-    [10, 2.523460639e20, 0, 0]
+    [t_coord, 2.523460639e20, 0, 0]
 ]
-
-mass = 1.989e30 * 4.3e6  #mass of the black hole in kg
-G = 6.67430e-11
-c = 299792458
 
 def metric(point, mass): #how distances and times are measured at a given point in spacetime
     t, x, y, z = point
@@ -74,7 +79,7 @@ time_dilations = []
 for r in np.linspace(1.28e10, 1e11, 500):
     path = [
         [0, r, 0, 0],
-        [10, r, 0, 0]
+        [t_coord, r, 0, 0]
     ]
     t_proper = time(path, mass)
     distances.append(r)
@@ -82,7 +87,7 @@ for r in np.linspace(1.28e10, 1e11, 500):
 plt.plot(distances, time_dilations)
 plt.xscale('log')
 plt.xlabel('Distance from Black Hole (m)')
-plt.ylabel('Proper Time for 10s Coordinate Time (s)')
+plt.ylabel(f'Proper Time for {t_coord}s Coordinate Time (s)')
 plt.title('Time Dilation Near a Supermassive Black Hole')
 plt.grid(True)
 plt.gca().yaxis.set_major_formatter(mticker.FormatStrFormatter('%.1f'))
