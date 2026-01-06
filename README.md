@@ -1,0 +1,2 @@
+This script is a General Relativity Simulator that calculates gravitational time dilation near a massive body, such as a star or a black hole. It specifically uses the Schwarzschild Metric to determine how much time passes for an observer at a specific distance from a mass compared to an observer in deep space.
+In this case its calculating for Sagittarius A*, the black hole at the center of the Milky way.

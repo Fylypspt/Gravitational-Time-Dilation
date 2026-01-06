@@ -14,7 +14,7 @@ farther = [
     [10, 2.523460639e20, 0, 0]
 ]
 
-mass = 1.989e30 * 4300000 #mass of the sun in kg
+mass = 1.989e30 * 4.3e6  #mass of the sun in kg
 G = 6.67430e-11
 c = 299792458
 
