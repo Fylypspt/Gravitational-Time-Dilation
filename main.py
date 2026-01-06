@@ -3,14 +3,25 @@ from matplotlib import pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
 import json
+import argparse
 
 with open('config.json', 'r') as f:
     config = json.load(f)
+    
+parser = argparse.ArgumentParser()
+parser.add_argument('--body', type=str, default='sagittarius_a', help="Choose body from config.json")
+args = parser.parse_args()
+
+selected_body = config['celestial_bodies'][args.body]
 
 G = 6.67430e-11
 c = 299792458
-mass = config['celestial_bodies']['sagittarius_a']['mass']
+mass = selected_body['mass']
 t_coord = config['simulation_settings']['coordinate_time']
+name = selected_body['description']
+
+print(f"Simulating time dilation for: {name}")
+
 
 closer = [
     [0, 1.5e10, 0, 0], #>12.7M km
