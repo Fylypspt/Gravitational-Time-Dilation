@@ -5,7 +5,7 @@ The script assumes a non-rotating, spherical mass. It models "shell observers" w
 
 It builds a metric tensor to define the local "density" of time, calculates the spacetime interval between two points, and converts that 4D distance into seconds.
 
-he included plotting logic generates a "Time Cliff" graph. By sampling distances from just above the event horizon (~12.7M km) out to 100M km, the graph visualizes the dramatic drop in proper time as an observer approaches the black hole's edge.
+The included plotting logic generates a "Time Cliff" graph. By sampling distances from just above the event horizon (~12.7M km) out to 100M km, the graph visualizes the dramatic drop in proper time as an observer approaches the black hole's edge.
 
 Resources: 
 https://en.wikipedia.org/wiki/Time_dilation
