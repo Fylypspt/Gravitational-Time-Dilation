@@ -7,6 +7,8 @@ It builds a metric tensor to define the local "density" of time, calculates the 
 
 The included plotting logic generates a "Time Cliff" graph. By sampling distances from just above the event horizon (~12.7M km) out to 100M km, the graph visualizes the dramatic drop in proper time as an observer approaches the black hole's edge.
 
+To make the simulation modular, constants are stored in a config.json file. This allows to switch between celestial bodies easily.
+
 Resources: 
 https://en.wikipedia.org/wiki/Time_dilation
 https://en.wikipedia.org/wiki/Gravitational_time_dilation
