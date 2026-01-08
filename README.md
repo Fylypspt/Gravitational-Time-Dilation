@@ -5,7 +5,7 @@ The script assumes a non-rotating, spherical mass. It models "shell observers" w
 
 It builds a metric tensor to define the local "density" of time, calculates the spacetime interval between two points, and converts that 4D distance into seconds.
 
-The included plotting logic generates a "Time Cliff" graph. By sampling distances from just above the event horizon (~12.7M km) out to 100M km, the graph visualizes the dramatic drop in proper time as an observer approaches the black hole's edge.
+The included plotting logic generates a "Time Cliff" graph. By sampling distances from just above the event horizon of Sagittarius a* (~12.7M km) out to 100M km, the graph visualizes the dramatic drop in proper time as an observer approaches the black hole's edge.
 
 To make the simulation modular, constants are stored in a config.json file. This allows the user to switch between celestial bodies easily without modifying the core logic in main.py.
 Example: To simulate Sagittarius A (Default): 
