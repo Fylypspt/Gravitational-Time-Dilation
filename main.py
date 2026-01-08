@@ -64,8 +64,6 @@ def distance(p1, p2, mass): #spacetime interval between two points
     metricT = metric(midpoint, mass)
     deltaX_ = matrix(deltaX, metricT)
     s2 = dot(deltaX, deltaX_)
-    if s2 <= 0:
-        raise ValueError("Non-timelike interval")
     return s2
 
 def matrix(point, metricT):
@@ -75,15 +73,13 @@ def matrix(point, metricT):
             result[i] += metricT[i][j] * point[j]
     return result
 
-def time(path, mass):
-    factor = np.sqrt(1 - (2 * G * mass) / (r * c**2))
-    return path * factor
-
 def time(path, mass): 
     total_tau = 0 
-    for i in range(len(path)-1): 
+    for i in range(len(path)-1):
         s2 = distance(path[i], path[i+1], mass) 
-        total_tau += np.sqrt(abs(s2)) / c #convert from meters to seconds 
+        if s2 <= 0:
+            raise ValueError("Non-timelike interval")
+        total_tau += np.sqrt(s2) / c #convert from meters to seconds 
     return total_tau
 
 t1 = time(closer, mass)
